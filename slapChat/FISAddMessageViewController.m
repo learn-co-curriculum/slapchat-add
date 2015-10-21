@@ -7,7 +7,7 @@
 //
 
 #import "FISAddMessageViewController.h"
-#import "Message.h"
+#import "FISMessage.h"
 #import "FISDataStore.h"
 
 @interface FISAddMessageViewController ()
@@ -17,15 +17,9 @@
 
 @implementation FISAddMessageViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
 - (IBAction)saveMessageButtonTapped:(id)sender {
     FISDataStore *store = [FISDataStore sharedDataStore];
-    Message *newMessage = [NSEntityDescription insertNewObjectForEntityForName:@"Message" inManagedObjectContext:store.managedObjectContext];
+    FISMessage *newMessage = [NSEntityDescription insertNewObjectForEntityForName:@"FISMessage" inManagedObjectContext:store.managedObjectContext];
     newMessage.content = self.messageContentField.text;
     newMessage.createdAt = [NSDate date];
     [store saveContext];
@@ -37,22 +31,5 @@
 - (IBAction)cancelButtonTapped:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
