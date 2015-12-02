@@ -82,3 +82,5 @@ Let's keep rollin' with our theme of "just do it":
 
   1. Add a button that resorts the messages in the array to descending by the `createdAt` property.
   2. Take your `generateTestData` method out of `FISTableViewController` and put it where it belongs (`FISDataStore`).
+
+<a href='https://learn.co/lessons/slapchat-add' data-visibility='hidden'>View this lesson on Learn.co</a>
